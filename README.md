@@ -1,0 +1,2 @@
+# turkishscript
+Yerli. Milli. Çalışıyor.
