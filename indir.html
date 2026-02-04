@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurkishScript - Yerli Programlama Dili</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --dark: #1d3557;
+            --light: #f1faee;
+            --accent: #457b9d;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: var(--light);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #e63946, #f1faee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+        .download-card {
+            background: #1e293b;
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-top: 2rem;
+        }
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(230, 57, 70, 0.6);
+        }
+        .version {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 3rem;
+        }
+        .feature-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>TurkishScript</h1>
+        <p>Geleceğin kodlarını kendi dilinde yaz. Tamamen Türkçe sözdizimi, güçlü grafik kütüphanesi ve hızlı derleme kapasitesiyle TurkishScript yayında!</p>
+
+        <div class="download-card">
+            <h2 style="margin-top:0;">Windows için İndir</h2>
+            <p>Hemen kur ve geliştirmeye başla.</p>
+            <a href="TurkishScript_Setup.exe" class="btn">🚀 Ücretsiz İndir</a>
+            <div class="version">Sürüm 1.0.0 | Windows 10/11 Uyumlu</div>
+        </div>
+
+        <div class="features">
+            <div class="feature-item">
+                <h3>Türkçe Sözdizimi</h3>
+                <p>Anlaşılır ve doğal Türkçe komutlar.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Grafik Desteği</h3>
+                <p>Dahili grafik paketi ile görsel pencereler.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Hızlı Derleme</h3>
+                <p>Kodlarını anında EXE'ye dönüştür.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
