@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Deniz Studios - TSMPM Panel</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: sans-serif; padding: 40px; }
+        .box { background: #161b22; border: 1px solid #30363d; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; background: #0d1117; border: 1px solid #30363d; color: white; border-radius: 5px; box-sizing: border-box; }
+        button { background: #238636; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
+        pre { background: #000; padding: 15px; border-radius: 5px; color: #7ee787; font-size: 12px; overflow: auto; }
+        .pkg { display: flex; justify-content: space-between; padding: 5px; border-bottom: 1px solid #30363d; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>TSMPM Paket Yükleme Alanı</h2>
+        <input type="text" id="name" placeholder="Paket Adı">
+        <input type="text" id="ver" placeholder="Sürüm (örn: 1.0)">
+        <textarea id="desc" placeholder="Açıklama"></textarea>
+        <button onclick="add()">Listeye Ekle</button>
+        
+        <h3>Mevcut pcg.json</h3>
+        <div id="list"></div>
+        <pre id="out">[]</pre>
+        <button style="background:#30363d" onclick="copy()">JSON Kopyala</button>
+    </div>
+
+    <script>
+        let pkgs = [];
+        // Mevcut pcg.json'u çekmeyi dene
+        fetch('https://denizstudios.github.io/turkishscript/pcg.json').then(r => r.json()).then(d => { pkgs = d; draw(); }).catch(e => {});
+
+        function add() {
+            const n = document.getElementById('name').value;
+            const v = document.getElementById('ver').value;
+            const d = document.getElementById('desc').value;
+            if(n && v) {
+                pkgs.push({ ad: n, surum: v, aciklama: d });
+                draw();
+            }
+        }
+
+        function draw() {
+            document.getElementById('list').innerHTML = pkgs.map((p, i) => `
+                <div class="pkg"><span>${p.ad} v${p.surum}</span> <a href="#" onclick="pkgs.splice(${i},1);draw()" style="color:red">Sil</a></div>
+            `).join('');
+            document.getElementById('out').innerText = JSON.stringify(pkgs, null, 4);
+        }
+
+        function copy() {
+            navigator.clipboard.writeText(document.getElementById('out').innerText);
+            alert("Kopyalandı! GitHub'daki pcg.json dosyana yapıştır.");
+        }
+    </script>
+</body>
+</html>
